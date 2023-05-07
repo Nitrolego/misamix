@@ -3,27 +3,27 @@ import os
 from pydub import AudioSegment
 from pathlib import Path
 import shutil
-from os.path import exists
+from os.path import exists, join, dirname
 
 #file path for folder for Misamino
-absolute_path = os.path.dirname(__file__)
+absolute_path = dirname(__file__)
 
-src_folder = os.path.join(absolute_path, "sfx/default")
+src_folder = join(absolute_path, "sfx/default")
 
-new_folder = os.path.join(absolute_path, "after/sfx/default")
-if not os.path.exists(new_folder):
+new_folder = join(absolute_path, "after/sfx/default")
+if not exists(new_folder):
     os.makedirs(new_folder)
 
 #function to simplify exporting to WAV files
 def export_to_wav_from_ogg(path, misaname):
     song = AudioSegment.from_ogg(path)
-    song.export(os.path.join(new_folder, f"{misaname}.wav"), 
+    song.export(join(new_folder, f"{misaname}.wav"), 
                     format="wav")
     #f string for easy identification of Misamino sfx names
 
 def export_to_wav_from_mp3(path, misaname):
     song = AudioSegment.from_mp3(path)
-    song.export(os.path.join(new_folder, f"{misaname}.wav"), 
+    song.export(join(new_folder, f"{misaname}.wav"), 
                     format="wav")
     #f string for easy identification of Misamino sfx names
 
@@ -50,16 +50,16 @@ for path in allpaths:
         export_to_wav_from_mp3(path, "sfx_b2b_tspin_triple")
         continue
     #elif statements to replace the file should it not exist
-    elif exists(os.path.join(src_folder, "sfx_b2b_tetris.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_b2b_tetris.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_b2b_tspin_mini.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_b2b_tspin_mini.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_b2b_tspin_single.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_b2b_tspin_single.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_b2b_tspin_double.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_b2b_tspin_double.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_b2b_tspin_triple.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_b2b_tspin_triple.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_b2b_tetris.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_b2b_tetris.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_b2b_tspin_mini.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_b2b_tspin_mini.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_b2b_tspin_single.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_b2b_tspin_single.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_b2b_tspin_double.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_b2b_tspin_double.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_b2b_tspin_triple.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_b2b_tspin_triple.wav"), new_folder)
         continue
 
     if path.name == "clearline.ogg":
@@ -74,14 +74,14 @@ for path in allpaths:
         export_to_wav_from_mp3(path, "sfx_triple")
         export_to_wav_from_mp3(path, "sfx_lineattack")
         continue
-    elif exists(os.path.join(src_folder, "sfx_single.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_single.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_double.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_double.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_triple.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_triple.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_lineattack.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_lineattack.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_single.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_single.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_double.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_double.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_triple.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_triple.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_lineattack.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_lineattack.wav"), new_folder)
         continue
 
     if path.name == "clearspin.ogg":
@@ -98,16 +98,16 @@ for path in allpaths:
         export_to_wav_from_mp3(path, "sfx_tspin_double")
         export_to_wav_from_mp3(path, "sfx_tspin_triple")
         continue
-    elif exists(os.path.join(src_folder, "sfx_tspin_zero.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_tspin_zero.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_tspin_zero.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_tspin_mini.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_tspin_zero.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_tspin_single.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_tspin_zero.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_tspin_double.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_tspin_zero.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_tspin_triple.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_tspin_zero.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_tspin_zero.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_tspin_zero.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_tspin_mini.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_tspin_zero.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_tspin_single.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_tspin_zero.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_tspin_double.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_tspin_zero.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_tspin_triple.wav"), new_folder)
         continue 
 
     if path.name == "losestock.ogg":
@@ -118,10 +118,10 @@ for path in allpaths:
         export_to_wav_from_mp3(path, "sfx_gameover")
         export_to_wav_from_mp3(path, "sfx_ko")
         continue
-    elif exists(os.path.join(src_folder, "sfx_gameover.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_gameover.wav"), new_folder)
-    elif exists(os.path.join(src_folder, "sfx_ko.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_ko.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_gameover.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_gameover.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_ko.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_ko.wav"), new_folder)
         continue
 
     if path.name == "harddrop.ogg":
@@ -130,8 +130,8 @@ for path in allpaths:
     elif path.name == "harddrop.mp3":
         export_to_wav_from_mp3(path, "sfx_harddrop")
         continue
-    elif exists(os.path.join(src_folder, "sfx_harddrop.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_harddrop.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_harddrop.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_harddrop.wav"), new_folder)
         continue
 
     if path.name == "hold.ogg":
@@ -140,8 +140,8 @@ for path in allpaths:
     elif path.name == "hold.mp3":
         export_to_wav_from_mp3(path, "sfx_hold")
         continue
-    elif exists(os.path.join(src_folder, "sfx_hold.wav")) == False:
-         shutil.copy(os.path.join(src_folder, "sfx_hold.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_hold.wav")) == False:
+         shutil.copy(join(src_folder, "sfx_hold.wav"), new_folder)
          continue
 
     if path.name == "move.ogg":
@@ -150,8 +150,8 @@ for path in allpaths:
     elif path.name == "move.mp3":
         export_to_wav_from_mp3(path, "sfx_move")
         continue
-    elif exists(os.path.join(src_folder, "sfx_move.wav")) == False:
-         shutil.copy(os.path.join(src_folder, "sfx_move.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_move.wav")) == False:
+         shutil.copy(join(src_folder, "sfx_move.wav"), new_folder)
          continue
 
     if path.name == "rotate.ogg":
@@ -160,8 +160,8 @@ for path in allpaths:
     if path.name == "rotate.mp3":
         export_to_wav_from_mp3(path, "sfx_rotate")
         continue
-    elif exists(os.path.join(src_folder, "sfx_rotate.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_rotate.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_rotate.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_rotate.wav"), new_folder)
         continue
 
     if path.name == "softdrop.ogg":
@@ -170,8 +170,8 @@ for path in allpaths:
     elif path.name == "softdrop.mp3":
         export_to_wav_from_mp3(path, "sfx_softdrop")
         continue
-    elif exists(os.path.join(src_folder, "sfx_softdrop.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_softdrop.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_softdrop.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_softdrop.wav"), new_folder)
         continue
 
     if path.name == "clearquad.ogg":
@@ -180,8 +180,8 @@ for path in allpaths:
     elif path.name == "clearquad.mp3":
         export_to_wav_from_mp3(path, "sfx_tetris")
         continue
-    elif exists(os.path.join(src_folder, "sfx_tetris.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_tetris.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_tetris.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_tetris.wav"), new_folder)
         continue
 
     if path.name == "allclear.ogg":
@@ -190,8 +190,8 @@ for path in allpaths:
     elif path.name == "allclear.mp3":
         export_to_wav_from_mp3(path, "sfx_perfectclear")
         continue
-    elif exists(os.path.join(src_folder, "sfx_perfectclear.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_perfectclear.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_perfectclear.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_perfectclear.wav"), new_folder)
         continue
         
     if path.name == "combo_1.ogg":
@@ -200,8 +200,8 @@ for path in allpaths:
     elif path.name == "combo_1.mp3":
         export_to_wav_from_mp3(path, "sfx_combo1")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo1.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo1.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo1.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo1.wav"), new_folder)
         continue
 
     if path.name == "combo_2.ogg":
@@ -210,8 +210,8 @@ for path in allpaths:
     elif path.name == "combo_2.mp3":
         export_to_wav_from_mp3(path, "sfx_combo2")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo2.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo2.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo2.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo2.wav"), new_folder)
         continue
 
     if path.name == "combo_3.ogg":
@@ -220,8 +220,8 @@ for path in allpaths:
     elif path.name == "combo_3.mp3":
         export_to_wav_from_mp3(path, "sfx_combo3")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo3.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo3.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo3.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo3.wav"), new_folder)
         continue
 
     if path.name == "combo_4.ogg":
@@ -230,8 +230,8 @@ for path in allpaths:
     elif path.name == "combo_4.mp3":
         export_to_wav_from_mp3(path, "sfx_combo4")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo4.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo4.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo4.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo4.wav"), new_folder)
         continue
 
     if path.name == "combo_5.ogg":
@@ -240,8 +240,8 @@ for path in allpaths:
     elif path.name == "combo_5.mp3":
         export_to_wav_from_mp3(path, "sfx_combo5")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo5.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo5.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo5.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo5.wav"), new_folder)
         continue
 
     if path.name == "combo_6.ogg":
@@ -250,8 +250,8 @@ for path in allpaths:
     elif path.name == "combo_6.mp3":
         export_to_wav_from_mp3(path, "sfx_combo6")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo6.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo6.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo6.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo6.wav"), new_folder)
         continue
 
     if path.name == "combo_7.ogg":
@@ -260,8 +260,8 @@ for path in allpaths:
     elif path.name == "combo_7.mp3":
         export_to_wav_from_mp3(path, "sfx_combo7")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo7.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo7.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo7.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo7.wav"), new_folder)
         continue
 
     if path.name == "combo_8.ogg":
@@ -270,8 +270,8 @@ for path in allpaths:
     elif path.name == "combo_8.mp3":
         export_to_wav_from_mp3(path, "sfx_combo8")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo8.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo8.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo8.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo8.wav"), new_folder)
         continue
 
     if path.name == "combo_9.ogg":
@@ -280,8 +280,8 @@ for path in allpaths:
     elif path.name == "combo_9.mp3":
         export_to_wav_from_mp3(path, "sfx_combo9")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo9.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo9.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo9.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo9.wav"), new_folder)
         continue
 
     if path.name == "combo_10.ogg":
@@ -290,8 +290,8 @@ for path in allpaths:
     elif path.name == "combo_10.mp3":
         export_to_wav_from_mp3(path, "sfx_combo10")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo10.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo10.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo10.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo10.wav"), new_folder)
         continue
 
     if path.name == "combo_11.ogg":
@@ -300,8 +300,8 @@ for path in allpaths:
     elif path.name == "combo_11.mp3":
         export_to_wav_from_mp3(path, "sfx_combo11")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo11.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo11.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo11.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo11.wav"), new_folder)
         continue
 
     if path.name == "combo_12.ogg":
@@ -310,8 +310,8 @@ for path in allpaths:
     elif path.name == "combo_12.mp3":
         export_to_wav_from_mp3(path, "sfx_combo12")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo12.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo12.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo12.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo12.wav"), new_folder)
         continue
 
     if path.name == "combo_13.ogg":
@@ -320,8 +320,8 @@ for path in allpaths:
     elif path.name == "combo_13.mp3":
         export_to_wav_from_mp3(path, "sfx_combo13")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo13.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo13.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo13.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo13.wav"), new_folder)
         continue
 
     if path.name == "combo_14.ogg":
@@ -330,8 +330,8 @@ for path in allpaths:
     elif path.name == "combo_14.mp3":
         export_to_wav_from_mp3(path, "sfx_combo14")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo14.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo14.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo14.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo14.wav"), new_folder)
         continue
 
     if path.name == "combo_15.ogg":
@@ -340,8 +340,8 @@ for path in allpaths:
     elif path.name == "combo_15.mp3":
         export_to_wav_from_mp3(path, "sfx_combo15")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo15.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo15.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo15.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo15.wav"), new_folder)
         continue
 
     if path.name == "combo_16.ogg":
@@ -350,16 +350,16 @@ for path in allpaths:
     elif path.name == "combo_16.mp3":
         export_to_wav_from_mp3(path, "sfx_combo16")
         continue
-    elif exists(os.path.join(src_folder, "sfx_combo16.wav")) == False:
-        shutil.copy(os.path.join(src_folder, "sfx_combo16.wav"), new_folder)
+    elif exists(join(new_folder, "sfx_combo16.wav")) == False:
+        shutil.copy(join(src_folder, "sfx_combo16.wav"), new_folder)
         continue
 
 
 #The following sounds are not avaliable in most tetrio soundpacks
-shutil.copy(os.path.join(src_folder, "sfx_combo17.wav"), new_folder)
-shutil.copy(os.path.join(src_folder, "sfx_combo18.wav"), new_folder)
-shutil.copy(os.path.join(src_folder, "sfx_combo19.wav"), new_folder)
-shutil.copy(os.path.join(src_folder, "sfx_combo20.wav"), new_folder)
-shutil.copy(os.path.join(src_folder, "sfx_lockdown.wav"), new_folder)
-shutil.copy(os.path.join(src_folder, "sfx_movefail.wav"), new_folder)
-shutil.copy(os.path.join(src_folder, "sfx_rotatefail.wav"), new_folder)
+shutil.copy(join(src_folder, "sfx_combo17.wav"), new_folder)
+shutil.copy(join(src_folder, "sfx_combo18.wav"), new_folder)
+shutil.copy(join(src_folder, "sfx_combo19.wav"), new_folder)
+shutil.copy(join(src_folder, "sfx_combo20.wav"), new_folder)
+shutil.copy(join(src_folder, "sfx_lockdown.wav"), new_folder)
+shutil.copy(join(src_folder, "sfx_movefail.wav"), new_folder)
+shutil.copy(join(src_folder, "sfx_rotatefail.wav"), new_folder)
