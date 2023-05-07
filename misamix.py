@@ -155,133 +155,13 @@ if wavpaths:
             copy(join(src_folder, "sfx_perfectclear.wav"), new_folder)
             continue
 
-        if path.name == "combo_1.wav":
-            copy(path, join(new_folder, "sfx_combo1.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo1.wav")) == False:
-            copy(join(src_folder, "sfx_combo1.wav"), new_folder)
-            continue
-
-        if path.name == "combo_2.wav":
-            copy(path, join(new_folder, "sfx_combo2.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo2.wav")) == False:
-            copy(join(src_folder, "sfx_combo2.wav"), new_folder)
-            continue
-
-        if path.name == "combo_3.wav":
-            copy(path, join(new_folder, "sfx_combo3.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo3.wav")) == False:
-            copy(join(src_folder, "sfx_combo3.wav"), new_folder)
-            continue
-
-        if path.name == "combo_4.wav":
-            copy(path, join(new_folder, "sfx_combo4.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo4.wav")) == False:
-            copy(join(src_folder, "sfx_combo4.wav"), new_folder)
-            continue
-
-        if path.name == "combo_5.wav":
-            copy(path, join(new_folder, "sfx_combo5.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo5.wav")) == False:
-            copy(join(src_folder, "sfx_combo5.wav"), new_folder)
-            continue
-
-        if path.name == "combo_6.wav":
-            copy(path, join(new_folder, "sfx_combo6.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo6.wav")) == False:
-            copy(join(src_folder, "sfx_combo6.wav"), new_folder)
-            continue
-
-        if path.name == "combo_7.wav":
-            copy(path, join(new_folder, "sfx_combo7.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo7.wav")) == False:
-            copy(join(src_folder, "sfx_combo7.wav"), new_folder)
-            continue
-
-        if path.name == "combo_8.wav":
-            copy(path, join(new_folder, "sfx_combo8.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo8.wav")) == False:
-            copy(join(src_folder, "sfx_combo8.wav"), new_folder)
-            continue
-
-        if path.name == "combo_9.wav":
-            copy(path, join(new_folder, "sfx_combo9.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo9.wav")) == False:
-            copy(join(src_folder, "sfx_combo9.wav"), new_folder)
-            continue
-
-        if path.name == "combo_10.wav":
-            copy(path, join(new_folder, "sfx_combo10.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo10.wav")) == False:
-            copy(join(src_folder, "sfx_combo10.wav"), new_folder)
-            continue
-
-        if path.name == "combo_11.wav":
-            copy(path, join(new_folder, "sfx_combo11.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo11.wav")) == False:
-            copy(join(src_folder, "sfx_combo11.wav"), new_folder)
-            continue
-
-        if path.name == "combo_12.wav":
-            copy(path, join(new_folder, "sfx_combo12.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo12.wav")) == False:
-            copy(join(src_folder, "sfx_combo12.wav"), new_folder)
-            continue
-
-        if path.name == "combo_13.wav":
-            copy(path, join(new_folder, "sfx_combo13.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo13.wav")) == False:
-            copy(join(src_folder, "sfx_combo13.wav"), new_folder)
-            continue
-
-        if path.name == "combo_14.wav":
-            copy(path, join(new_folder, "sfx_combo14.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo14.wav")) == False:
-            copy(join(src_folder, "sfx_combo14.wav"), new_folder)
-            continue
-
-        if path.name == "combo_15.wav":
-            copy(path, join(new_folder, "sfx_combo15.wav"))
-            continue
-
-        elif exists(join(new_folder, "sfx_combo15.wav")) == False:
-            copy(join(src_folder, "sfx_combo15.wav"), new_folder)
-            continue
-
-        if path.name == "combo_16.wav":
-            copy(path, join(new_folder, "sfx_combo16.wav"))
-            continue
-        elif exists(join(new_folder, "sfx_combo16.wav")) == False:
-            copy(join(src_folder, "sfx_combo16.wav"), new_folder)
-            continue
-
+        for i in range(1,17):
+            if path.name == f"combo_{i}.wav":
+                copy(path, join(new_folder, f"sfx_combo{i}.wav"))
+                continue
+            elif exists(join(new_folder, f"sfx_combo{i}.wav")) == False:
+                copy(join(src_folder, f"sfx_combo{i}.wav"), new_folder)
+                continue
 
     #The following sounds are not avaliable in most tetrio soundpacks
     copy(join(src_folder, "sfx_combo17.wav"), new_folder)
@@ -462,166 +342,17 @@ for path in allpaths:
     elif exists(join(new_folder, "sfx_perfectclear.wav")) == False:
         copy(join(src_folder, "sfx_perfectclear.wav"), new_folder)
         continue
-        
-    if path.name == "combo_1.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo1")
-        continue
-    elif path.name == "combo_1.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo1")
-        continue
-    elif exists(join(new_folder, "sfx_combo1.wav")) == False:
-        copy(join(src_folder, "sfx_combo1.wav"), new_folder)
-        continue
-
-    if path.name == "combo_2.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo2")
-        continue
-    elif path.name == "combo_2.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo2")
-        continue
-    elif exists(join(new_folder, "sfx_combo2.wav")) == False:
-        copy(join(src_folder, "sfx_combo2.wav"), new_folder)
-        continue
-
-    if path.name == "combo_3.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo3")
-        continue
-    elif path.name == "combo_3.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo3")
-        continue
-    elif exists(join(new_folder, "sfx_combo3.wav")) == False:
-        copy(join(src_folder, "sfx_combo3.wav"), new_folder)
-        continue
-
-    if path.name == "combo_4.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo4")
-        continue
-    elif path.name == "combo_4.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo4")
-        continue
-    elif exists(join(new_folder, "sfx_combo4.wav")) == False:
-        copy(join(src_folder, "sfx_combo4.wav"), new_folder)
-        continue
-
-    if path.name == "combo_5.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo5")
-        continue
-    elif path.name == "combo_5.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo5")
-        continue
-    elif exists(join(new_folder, "sfx_combo5.wav")) == False:
-        copy(join(src_folder, "sfx_combo5.wav"), new_folder)
-        continue
-
-    if path.name == "combo_6.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo6")
-        continue
-    elif path.name == "combo_6.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo6")
-        continue
-    elif exists(join(new_folder, "sfx_combo6.wav")) == False:
-        copy(join(src_folder, "sfx_combo6.wav"), new_folder)
-        continue
-
-    if path.name == "combo_7.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo7")
-        continue
-    elif path.name == "combo_7.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo7")
-        continue
-    elif exists(join(new_folder, "sfx_combo7.wav")) == False:
-        copy(join(src_folder, "sfx_combo7.wav"), new_folder)
-        continue
-
-    if path.name == "combo_8.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo8")
-        continue
-    elif path.name == "combo_8.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo8")
-        continue
-    elif exists(join(new_folder, "sfx_combo8.wav")) == False:
-        copy(join(src_folder, "sfx_combo8.wav"), new_folder)
-        continue
-
-    if path.name == "combo_9.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo9")
-        continue
-    elif path.name == "combo_9.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo9")
-        continue
-    elif exists(join(new_folder, "sfx_combo9.wav")) == False:
-        copy(join(src_folder, "sfx_combo9.wav"), new_folder)
-        continue
-
-    if path.name == "combo_10.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo10")
-        continue
-    elif path.name == "combo_10.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo10")
-        continue
-    elif exists(join(new_folder, "sfx_combo10.wav")) == False:
-        copy(join(src_folder, "sfx_combo10.wav"), new_folder)
-        continue
-
-    if path.name == "combo_11.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo11")
-        continue
-    elif path.name == "combo_11.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo11")
-        continue
-    elif exists(join(new_folder, "sfx_combo11.wav")) == False:
-        copy(join(src_folder, "sfx_combo11.wav"), new_folder)
-        continue
-
-    if path.name == "combo_12.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo12")
-        continue
-    elif path.name == "combo_12.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo12")
-        continue
-    elif exists(join(new_folder, "sfx_combo12.wav")) == False:
-        copy(join(src_folder, "sfx_combo12.wav"), new_folder)
-        continue
-
-    if path.name == "combo_13.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo13")
-        continue
-    elif path.name == "combo_13.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo13")
-        continue
-    elif exists(join(new_folder, "sfx_combo13.wav")) == False:
-        copy(join(src_folder, "sfx_combo13.wav"), new_folder)
-        continue
-
-    if path.name == "combo_14.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo14")
-        continue
-    elif path.name == "combo_14.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo14")
-        continue
-    elif exists(join(new_folder, "sfx_combo14.wav")) == False:
-        copy(join(src_folder, "sfx_combo14.wav"), new_folder)
-        continue
-
-    if path.name == "combo_15.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo15")
-        continue
-    elif path.name == "combo_15.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo15")
-        continue
-    elif exists(join(new_folder, "sfx_combo15.wav")) == False:
-        copy(join(src_folder, "sfx_combo15.wav"), new_folder)
-        continue
-
-    if path.name == "combo_16.ogg":
-        export_to_wav_from_ogg(path, "sfx_combo16")
-        continue
-    elif path.name == "combo_16.mp3":
-        export_to_wav_from_mp3(path, "sfx_combo16")
-        continue
-    elif exists(join(new_folder, "sfx_combo16.wav")) == False:
-        copy(join(src_folder, "sfx_combo16.wav"), new_folder)
-        continue
+    
+    for i in range(1,17):
+        if path.name == f"combo_{i}.ogg":
+            export_to_wav_from_ogg(path, f"sfx_combo{i}")
+            continue
+        elif path.name == f"combo_{i}.mp3":
+            export_to_wav_from_mp3(path, f"sfx_combo{i}")
+            continue
+        elif exists(join(new_folder, f"sfx_com{i}.wav")) == False:
+            copy(join(src_folder, f"sfx_combo{i}.wav"), new_folder)
+            continue
 
 
 #The following sounds are not avaliable in most tetrio soundpacks
