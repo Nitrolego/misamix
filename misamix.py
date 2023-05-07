@@ -245,7 +245,10 @@ for path in allpaths:
         elif path.name == f"combo_{i}.mp3":
             export_to_wav_from_mp3(path, f"sfx_combo{i}")
             continue
-        elif exists(join(new_folder, f"sfx_com{i}.wav")) == False:
+        elif path.name == f"combo_{i}.wav":
+            copy(path, join(new_folder, f"sfx_combo{i}.wav"))
+            continue
+        elif exists(join(new_folder, f"sfx_combo{i}.wav")) == False:
             copy(join(src_folder, f"sfx_combo{i}.wav"), new_folder)
             continue
 
