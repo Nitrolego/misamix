@@ -29,8 +29,9 @@ def export_to_wav_from_mp3(path, misaname):
 oggpaths = [path for path in Path(absolute_path).rglob("*.ogg")]
 mp3paths = [path for path in Path(absolute_path).rglob("*.mp3")]
 wavpaths = [path for path in Path(absolute_path).rglob("*.wav")]
+wavpaths = [path for path in Path(absolute_path).rglob("*.wav")]
 
-allpaths = oggpaths + mp3paths + wavpaths
+allpaths = oggpaths + mp3paths + wavpaths + wavpaths
 
 for path in allpaths:
     print(path.name)
@@ -207,9 +208,6 @@ for path in allpaths:
     elif path.name == "softdrop.mp3":
         export_to_wav_from_mp3(path, "sfx_softdrop")
         continue
-    elif path.name == "softdrop.wav":
-        copy(path, join(new_folder, "sfx_softdrop.wav"))
-        continue
     elif exists(join(new_folder, "sfx_softdrop.wav")) == False:
         copy(join(src_folder, "sfx_softdrop.wav"), new_folder)
         continue
@@ -247,12 +245,10 @@ for path in allpaths:
         elif path.name == f"combo_{i}.mp3":
             export_to_wav_from_mp3(path, f"sfx_combo{i}")
             continue
-        elif path.name == f"combo_{i}.wav":
-            copy(path, join(new_folder, f"sfx_combo{i}.wav"))
-            continue
         elif exists(join(new_folder, f"sfx_com{i}.wav")) == False:
             copy(join(src_folder, f"sfx_combo{i}.wav"), new_folder)
             continue
+
 
 #The following sounds are not avaliable in most tetrio soundpacks
 copy(join(src_folder, "sfx_combo17.wav"), new_folder)
