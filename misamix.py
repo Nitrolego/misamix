@@ -35,7 +35,7 @@ allpaths = oggpaths + mp3paths + wavpaths
 for path in allpaths:
     print(path.name)
     if path.name.startswith("sfx_"):
-            continue
+        continue
     if path.name == "clearbtb.ogg":
         export_to_wav_from_ogg(path, "sfx_b2b_tetris")
         export_to_wav_from_ogg(path, "sfx_b2b_tspin_mini")
@@ -185,8 +185,8 @@ for path in allpaths:
         copy(path, join(new_folder, "sfx_move.wav"))
         continue
     elif exists(join(new_folder, "sfx_move.wav")) == False:
-         copy(join(src_folder, "sfx_move.wav"), new_folder)
-         continue
+        copy(join(src_folder, "sfx_move.wav"), new_folder)
+        continue
 
     if path.name == "rotate.ogg":
         export_to_wav_from_ogg(path, "sfx_rotate")
@@ -208,8 +208,8 @@ for path in allpaths:
         export_to_wav_from_mp3(path, "sfx_softdrop")
         continue
     elif path.name == "softdrop.wav":
-            copy(path, join(new_folder, "sfx_softdrop.wav"))
-            continue
+        copy(path, join(new_folder, "sfx_softdrop.wav"))
+        continue
     elif exists(join(new_folder, "sfx_softdrop.wav")) == False:
         copy(join(src_folder, "sfx_softdrop.wav"), new_folder)
         continue
@@ -248,12 +248,12 @@ for path in allpaths:
             export_to_wav_from_mp3(path, f"sfx_combo{i}")
             continue
         elif path.name == f"combo_{i}.wav":
-                copy(path, join(new_folder, f"sfx_combo{i}.wav"))
-                continue
+            copy(path, join(new_folder, f"sfx_combo{i}.wav"))
+            continue
         elif exists(join(new_folder, f"sfx_com{i}.wav")) == False:
             copy(join(src_folder, f"sfx_combo{i}.wav"), new_folder)
             continue
-        
+
 #The following sounds are not avaliable in most tetrio soundpacks
 copy(join(src_folder, "sfx_combo17.wav"), new_folder)
 copy(join(src_folder, "sfx_combo18.wav"), new_folder)
