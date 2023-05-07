@@ -1,8 +1,8 @@
 #imports
-from os import makedirs, rename
+from os import makedirs
 from pydub import AudioSegment
 from pathlib import Path
-from shutil import copy, move
+from shutil import copy
 from os.path import exists, join, dirname
 
 #file path for folder for Misamino
@@ -15,14 +15,12 @@ if not exists(new_folder):
 #function to simplify exporting to WAV files
 def export_to_wav_from_ogg(path, misaname):
     song = AudioSegment.from_ogg(path)
-    song.export(join(new_folder, f"{misaname}.wav"), 
-                    format="wav")
+    song.export(join(new_folder, f"{misaname}.wav"), format="wav")
     #f string for easy identification of Misamino sfx names
 
 def export_to_wav_from_mp3(path, misaname):
     song = AudioSegment.from_mp3(path)
-    song.export(join(new_folder, f"{misaname}.wav"), 
-                    format="wav")
+    song.export(join(new_folder, f"{misaname}.wav"), format="wav")
     #f string for easy identification of Misamino sfx names
 
 #Looping through all ogg files in repository to convert to WAV
@@ -34,6 +32,7 @@ allpaths = oggpaths + mp3paths + wavpaths
 
 for path in allpaths:
     print(path.name)
+    #ignores default sfx for processing
     if path.name.startswith("sfx_"):
         continue
     if path.name == "clearbtb.ogg":
