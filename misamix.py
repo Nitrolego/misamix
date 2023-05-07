@@ -2,9 +2,13 @@
 import os
 from pydub import AudioSegment
 from pathlib import Path
+import shutil
 
 #file path for folder for Misamino
 absolute_path = os.path.dirname(__file__)
+
+src_folder = os.path.join(absolute_path, "sfx/default")
+
 new_folder = os.path.join(absolute_path, "after/sfx/default")
 if not os.path.exists(new_folder):
     os.makedirs(new_folder)
@@ -20,10 +24,16 @@ def export_to_wav(path, misaname):
 for path in Path(absolute_path).rglob('*.ogg'):
     if path.name == "clearbtb.ogg":
         export_to_wav(path, "sfx_b2b_tetris")
-        export_to_wav(path, "sfx_b2b_tspin_double")
         export_to_wav(path, "sfx_b2b_tspin_mini")
         export_to_wav(path, "sfx_b2b_tspin_single")
+        export_to_wav(path, "sfx_b2b_tspin_double")
         export_to_wav(path, "sfx_b2b_tspin_triple")
+    else:
+        shutil.copy(os.path.join(src_folder, "sfx_b2b_tetris.wav"), new_folder)
+        shutil.copy(os.path.join(src_folder, "sfx_b2b_tspin_mini.wav"), new_folder)
+        shutil.copy(os.path.join(src_folder, "sfx_b2b_tspin_single.wav"), new_folder)
+        shutil.copy(os.path.join(src_folder, "sfx_b2b_tspin_double.wav"), new_folder)
+        shutil.copy(os.path.join(src_folder, "sfx_b2b_tspin_triple.wav"), new_folder)
 
     if path.name == "clearline.ogg":
         export_to_wav(path, "sfx_single")
@@ -113,3 +123,10 @@ for path in Path(absolute_path).rglob('*.ogg'):
     print(path.name)
 
 #The following sounds are not avaliable in most tetrio soundpacks
+shutil.copy(os.path.join(src_folder, "sfx_combo17.wav"), new_folder)
+# shutil.copy(src_folder + "sfx_combo18.wav", new_folder)
+# shutil.copy(src_folder + "sfx_combo19.wav", new_folder)
+# shutil.copy(src_folder + "sfx_combo20.wav", new_folder)
+# shutil.copy(src_folder + "sfx_lockdown.wav", new_folder)
+# shutil.copy(src_folder + "sfx_movefail.wav", new_folder)
+# shutil.copy(src_folder + "sfx_rotatefail.wav", new_folder)
