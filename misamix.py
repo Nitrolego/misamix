@@ -109,5 +109,18 @@ for path in Path(absolute_path).rglob('*.ogg'):
 
     if path.name == "combo_16.ogg":
         export_to_wav(path, "sfx_combo16")
+    
+    #the following is not avaliable in most tetrio soundpacks
+    if path.name == "combo_17.ogg":
+        export_to_wav(path, "sfx_combo17")
+    
+    if path.name == "combo_18.ogg":
+        export_to_wav(path, "sfx_combo18")
+
+    if path.name == "combo_19.ogg":
+        export_to_wav(path, "sfx_combo19")
+
+    if path.name == "combo_20.ogg":
+        export_to_wav(path, "sfx_combo20")
 
     print(path.name)
