@@ -24,7 +24,7 @@ for path in Path(absolute_path).rglob('*.ogg'):
         export_to_wav(path, "sfx_b2b_tspin_mini")
         export_to_wav(path, "sfx_b2b_tspin_single")
         export_to_wav(path, "sfx_b2b_tspin_triple")
-    
+
     if path.name == "clearline.ogg":
         export_to_wav(path, "sfx_single")
         export_to_wav(path, "sfx_double")
@@ -109,18 +109,7 @@ for path in Path(absolute_path).rglob('*.ogg'):
 
     if path.name == "combo_16.ogg":
         export_to_wav(path, "sfx_combo16")
-    
-    #the following is not avaliable in most tetrio soundpacks
-    if path.name == "combo_17.ogg":
-        export_to_wav(path, "sfx_combo17")
-    
-    if path.name == "combo_18.ogg":
-        export_to_wav(path, "sfx_combo18")
-
-    if path.name == "combo_19.ogg":
-        export_to_wav(path, "sfx_combo19")
-
-    if path.name == "combo_20.ogg":
-        export_to_wav(path, "sfx_combo20")
 
     print(path.name)
+
+#The following sounds are not avaliable in most tetrio soundpacks
