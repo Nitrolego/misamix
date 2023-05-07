@@ -29,9 +29,8 @@ def export_to_wav_from_mp3(path, misaname):
 oggpaths = [path for path in Path(absolute_path).rglob("*.ogg")]
 mp3paths = [path for path in Path(absolute_path).rglob("*.mp3")]
 wavpaths = [path for path in Path(absolute_path).rglob("*.wav")]
-wavpaths = [path for path in Path(absolute_path).rglob("*.wav")]
 
-allpaths = oggpaths + mp3paths + wavpaths + wavpaths
+allpaths = oggpaths + mp3paths + wavpaths
 
 for path in allpaths:
     print(path.name)
@@ -207,6 +206,9 @@ for path in allpaths:
         continue
     elif path.name == "softdrop.mp3":
         export_to_wav_from_mp3(path, "sfx_softdrop")
+        continue
+    elif path.name == "softdrop.wav":
+        copy(path, join(new_folder, "sfx_softdrop.wav"))
         continue
     elif exists(join(new_folder, "sfx_softdrop.wav")) == False:
         copy(join(src_folder, "sfx_softdrop.wav"), new_folder)
