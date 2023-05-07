@@ -1,6 +1,7 @@
 #imports
 import os
 from pydub import AudioSegment
+from pathlib import Path
 
 #file path for folder for Misamino
 absolute_path = os.path.dirname(__file__)
@@ -16,7 +17,6 @@ def export_to_wav(path, misaname):
     #f string for easy identification of Misamino sfx names
 
 #Looping through all ogg files in repository to convert to WAV
-from pathlib import Path
 for path in Path(absolute_path).rglob('*.ogg'):
     if path.name == "clearbtb.ogg":
         export_to_wav(path, "sfx_b2b_tetris")
