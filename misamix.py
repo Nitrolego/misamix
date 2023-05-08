@@ -30,7 +30,8 @@ def export_to_wav_from_mp3(path, misaname):
 convertDict = {}
 
 convertDict['clearbtb'] = ['sfx_b2b_tetris','sfx_b2b_tspin_mini',
-                           'sfx_b2b_tspin_double','sfx_b2b_tspin_triple']
+                           'sfx_b2b_tspin_single', 'sfx_b2b_tspin_double',
+                           'sfx_b2b_tspin_triple']
 convertDict['clearline'] = ['sfx_single', 'sfx_double',
                             'sfx_triple', 'sfx_lineattack']
 convertDict['clearspin'] = ['sfx_tspin_zero', 'sfx_tspin_mini',
@@ -58,20 +59,32 @@ allpaths = oggpaths + mp3paths + wavpaths
 if allpaths:
     #refactored processing of all file formats
     for path in allpaths:
-        print(path.name)
+        print("processing: " + path.name)
         for originalnames, misanames in convertDict.items():
             for sfx in misanames:
                 if path.name == f'{originalnames}.ogg':
                     export_to_wav_from_ogg(path, f'{sfx}')
+                    print(
+                        f"converted {originalnames}.ogg to {sfx}.wav successfully!"
+                        )
                     continue
                 elif path.name == f'{originalnames}.mp3':
                     export_to_wav_from_mp3(path, f'{sfx}')
+                    print(
+                        f"converted {originalnames}.mp3 to {sfx}.wav successfully!"
+                        )
                     continue
                 elif path.name == f'{originalnames}.wav':
                     copy(path, join(new_folder, f'{sfx}.wav'))
+                    print(
+                        f"renamed {originalnames} to {sfx} successfully!"
+                        )
                     continue
                 elif not exists(join(new_folder, f'{sfx}.wav')):
                     copy(join(src_folder, f'{sfx}.wav'), new_folder)
+                    print(
+                        f"replaced {originalnames} with {sfx}.wav successfully!"
+                        )
                     continue
 
     #The following sounds are not avaliable in most tetrio soundpacks
