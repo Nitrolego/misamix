@@ -19,12 +19,19 @@ for folder in req_folder:
 def export_to_wav_from_ogg(path, misaname):
     song = AudioSegment.from_ogg(path)
     song.export(join(new_folder, f"{misaname}.wav"), format="wav")
+    print(f"converted {path.name} to {misaname}.wav successfully!")
     #f string for easy identification of Misamino sfx names
 
 def export_to_wav_from_mp3(path, misaname):
     song = AudioSegment.from_mp3(path)
     song.export(join(new_folder, f"{misaname}.wav"), format="wav")
+    print(f"converted {path.name} to {misaname}.wav successfully!")
     #f string for easy identification of Misamino sfx names
+
+def copy_from_wav_to_wav(path, misaname):
+    copy(path, join(new_folder, f'{misaname}.wav'))
+    print(f"renamed {path.name} to {misaname}.wav successfully!")
+
 
 #creating dictionary to link each file 
 convertDict = {}
@@ -71,26 +78,17 @@ if allpaths:
                 break
             if path.name == f'{originalnames}.ogg':
                 for sfx in misanames:
-                    export_to_wav_from_ogg(path, f'{sfx}')
-                    print(
-                        f"converted {path.name} to {sfx}.wav successfully!"
-                        )
+                    export_to_wav_from_ogg(path, sfx)
                     continue
                 break
             elif path.name == f'{originalnames}.mp3':
                 for sfx in misanames:
-                    export_to_wav_from_mp3(path, f'{sfx}')
-                    print(
-                        f"converted {path.name} to {sfx}.wav successfully!"
-                        )
+                    export_to_wav_from_mp3(path, sfx)
                     continue
                 break
             elif path.name == f'{originalnames}.wav':
                 for sfx in misanames:
-                    copy(path, join(new_folder, f'{sfx}.wav'))
-                    print(
-                        f"renamed {path.name} to {sfx}.wav successfully!"
-                        )
+                    copy_from_wav_to_wav(path, sfx)
                     continue
                 break
 
