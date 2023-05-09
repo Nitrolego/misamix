@@ -47,6 +47,10 @@ convertDict['clearquad'] = ['sfx_tetris']
 convertDict['allclear'] = ['sfx_perfectclear']
 for i in range(1,17):
     convertDict[f'combo_{i}'] = [f'sfx_combo{i}']
+convertDict['undefined'] = ['sfx_combo17', 'sfx_combo18',
+                            'sfx_combo19', 'sfx_combo19',
+                            'sfx_combo20', 'sfx_lockdown',
+                            'sfx_movefail', 'sfx_rotatefail']
 
 #Looping through all ogg,mp3, and wav files in before folder
 oggpaths = [path for path in Path(bfr_folder).rglob("*.ogg")]
@@ -61,40 +65,47 @@ if allpaths:
     for path in allpaths:
         print("processing: " + path.name)
         for originalnames, misanames in convertDict.items():
-            for sfx in misanames:
-                if path.name == f'{originalnames}.ogg':
+            #cheaty way of knowing when the loop reaches the end of the dictionary
+            if originalnames == "undefined":
+                print("this sound does not exist in misamino")
+                break
+            if path.name == f'{originalnames}.ogg':
+                for sfx in misanames:
                     export_to_wav_from_ogg(path, f'{sfx}')
                     print(
-                        f"converted {originalnames}.ogg to {sfx}.wav successfully!"
+                        f"converted {path.name} to {sfx}.wav successfully!"
                         )
                     continue
-                elif path.name == f'{originalnames}.mp3':
+                break
+            elif path.name == f'{originalnames}.mp3':
+                for sfx in misanames:
                     export_to_wav_from_mp3(path, f'{sfx}')
                     print(
-                        f"converted {originalnames}.mp3 to {sfx}.wav successfully!"
+                        f"converted {path.name} to {sfx}.wav successfully!"
                         )
                     continue
-                elif path.name == f'{originalnames}.wav':
+                break
+            elif path.name == f'{originalnames}.wav':
+                for sfx in misanames:
                     copy(path, join(new_folder, f'{sfx}.wav'))
                     print(
-                        f"renamed {originalnames} to {sfx} successfully!"
+                        f"renamed {path.name} to {sfx}.wav successfully!"
                         )
                     continue
-                elif not exists(join(new_folder, f'{sfx}.wav')):
+                break
+
+    afterpaths = [path for path in Path(new_folder).rglob("*.wav")]
+    #only check for missing files that need replacing after processing is over         
+    for path in afterpaths:
+        for originalnames, misanames in convertDict.items():
+            for sfx in misanames:
+                if not exists(join(new_folder, f'{sfx}.wav')):
                     copy(join(src_folder, f'{sfx}.wav'), new_folder)
                     print(
                         f"replaced {originalnames} with {sfx}.wav successfully!"
                         )
                     continue
 
-    #The following sounds are not avaliable in most tetrio soundpacks
-    copy(join(src_folder, "sfx_combo17.wav"), new_folder)
-    copy(join(src_folder, "sfx_combo18.wav"), new_folder)
-    copy(join(src_folder, "sfx_combo19.wav"), new_folder)
-    copy(join(src_folder, "sfx_combo20.wav"), new_folder)
-    copy(join(src_folder, "sfx_lockdown.wav"), new_folder)
-    copy(join(src_folder, "sfx_movefail.wav"), new_folder)
-    copy(join(src_folder, "sfx_rotatefail.wav"), new_folder)
 #else, usually when the folder is empty or that the before folder is deleted.
 else:
     print('empty folder, quitting')
