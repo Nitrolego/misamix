@@ -32,6 +32,9 @@ def copy_from_wav_to_wav(path, misaname):
     copy(path, join(new_folder, f'{misaname}.wav'))
     print(f"renamed {path.name} to {misaname}.wav successfully!")
 
+def replace_missing_sounds(oriname, misaname):
+    copy(join(src_folder, f'{misaname}.wav'), new_folder)
+    print(f"replaced {oriname} with {misaname}.wav successfully!")
 
 #creating dictionary to link each file 
 convertDict = {}
@@ -98,10 +101,7 @@ if allpaths:
         for originalnames, misanames in convertDict.items():
             for sfx in misanames:
                 if not exists(join(new_folder, f'{sfx}.wav')):
-                    copy(join(src_folder, f'{sfx}.wav'), new_folder)
-                    print(
-                        f"replaced {originalnames} with {sfx}.wav successfully!"
-                        )
+                    replace_missing_sounds(originalnames, sfx)
                     continue
 
 #else, usually when the folder is empty or that the before folder is deleted.
