@@ -10,6 +10,7 @@ absolute_path = dirname(__file__)
 src_folder = join(absolute_path, "sfx/default")
 bfr_folder = join(absolute_path, "before")
 new_folder = join(absolute_path, "after/sfx/default")
+preprocess = join(bfr_folder, "preprocess")
 req_folder = [bfr_folder, new_folder]
 for folder in req_folder:
     if not exists(folder):
@@ -64,13 +65,16 @@ convertDict['undefined'] = ['sfx_combo17', 'sfx_combo18',
 
 #if soundsfx is zipped, unzip
 zippaths = [path for path in Path(bfr_folder).rglob("*.zip")]
+preprocesspath = [path for path in Path(preprocess).rglob("")]
 
-if zippaths:
+if zippaths and not preprocesspath:
     for path in zippaths:
-        preprocess = join(bfr_folder, "preprocess")
         if not exists(preprocess):
             makedirs(preprocess)
         unpack_archive(path, preprocess)
+        print(f"{path.name} unzipped successfully!")
+else:
+    print("preprocess directory already occupied")
 
 #Looping through all ogg,mp3, and wav files in before folder
 oggpaths = [path for path in Path(bfr_folder).rglob("*.ogg")]
