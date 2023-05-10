@@ -1,5 +1,3 @@
 after/
-gui.py
-gui_playground.py
 __pycache__/
 example*
