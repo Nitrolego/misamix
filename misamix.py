@@ -65,7 +65,7 @@ convertDict['undefined'] = ['sfx_combo17', 'sfx_combo18',
 
 #if soundsfx is zipped, unzip
 zippaths = [path for path in Path(bfr_folder).rglob("*.zip")]
-preprocesspath = [path for path in Path(preprocess).rglob("")]
+preprocesspath = [path for path in Path(preprocess).rglob("*")]
 
 if zippaths and not preprocesspath:
     for path in zippaths:
@@ -73,8 +73,8 @@ if zippaths and not preprocesspath:
             makedirs(preprocess)
         unpack_archive(path, preprocess)
         print(f"{path.name} unzipped successfully!")
-else:
-    print("preprocess directory already occupied")
+elif zippaths:
+    print("preprocess directory already occupied, skipping unpack")
 
 #Looping through all ogg,mp3, and wav files in before folder
 oggpaths = [path for path in Path(bfr_folder).rglob("*.ogg")]
