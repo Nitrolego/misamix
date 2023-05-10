@@ -2,7 +2,7 @@
 from os import makedirs
 from pydub import AudioSegment
 from pathlib import Path
-from shutil import copy
+from shutil import copy, unpack_archive
 from os.path import exists, join, dirname
 
 #file path for folder for Misamino
@@ -61,6 +61,16 @@ convertDict['undefined'] = ['sfx_combo17', 'sfx_combo18',
                             'sfx_combo19', 'sfx_combo19',
                             'sfx_combo20', 'sfx_lockdown',
                             'sfx_movefail', 'sfx_rotatefail']
+
+#if soundsfx is zipped, unzip
+zippaths = [path for path in Path(bfr_folder).rglob("*.zip")]
+
+if zippaths:
+    for path in zippaths:
+        preprocess = join(bfr_folder, "preprocess")
+        if not exists(preprocess):
+            makedirs(preprocess)
+        unpack_archive(path, preprocess)
 
 #Looping through all ogg,mp3, and wav files in before folder
 oggpaths = [path for path in Path(bfr_folder).rglob("*.ogg")]
