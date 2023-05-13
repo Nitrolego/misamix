@@ -6,12 +6,12 @@ from shutil import copy, unpack_archive
 from os.path import exists, join, dirname
 
 class MisaClass:
-    def __init__(self) -> None:
+    def __init__(self, bfr_folder, new_folder) -> None:
         #file path for folder for Misamino
         self.absolute_path = dirname(__file__)
         self.src_folder = join(self.absolute_path, "sfx/default")
-        self.bfr_folder = join(self.absolute_path, "before")
-        self.new_folder = join(self.absolute_path, "after/sfx/default")
+        self.bfr_folder = bfr_folder
+        self.new_folder = new_folder
         self.preprocess = join(self.bfr_folder, "preprocess")
         self.req_folder = [self.bfr_folder, self.new_folder]
         for folder in self.req_folder:
