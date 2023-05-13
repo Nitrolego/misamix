@@ -122,8 +122,9 @@ class MisaClass:
                         if not exists(join(self.new_folder, f'{sfx}.wav')):
                             self.replace_missing_sounds(originalnames, sfx)
                             continue
+            return True
 
         #else, usually when the folder is empty or that the before folder is deleted.
         else:
             print('empty folder, quitting')
-            quit()
+            return False
