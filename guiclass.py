@@ -33,12 +33,9 @@ class MisaGUI:
         self.success_lbl = ttk.Label(mainframe, textvariable=self.success_text)
 
         #button declaration
-        self.bfr_btn = ttk.Button(mainframe, text="Open",
-                                        command=self.openbfrdir)
-        self.new_btn = ttk.Button(mainframe, text="Open",
-                                        command=self.opennewdir)
-        self.run_btn = ttk.Button(mainframe, text="Run", 
-                                        command=self.main)
+        self.bfr_btn = ttk.Button(mainframe, text="Open", command=self.openbfrdir)
+        self.new_btn = ttk.Button(mainframe, text="Open", command=self.opennewdir)
+        self.run_btn = ttk.Button(mainframe, text="Run", command=self.main)
 
         #grid positioning of widgets
         mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
@@ -73,11 +70,11 @@ class MisaGUI:
     def main(self):
         self.misa = MisaClass(bfr_folder=self.bfr_filepath, new_folder=self.new_filepath)
         if self.misa.main():
-            self.success_text.set("soundpack converted successfully")
+            self.success_text.set("Soundpack converted successfully!")
             self.success_lbl.config(foreground='green')
             root.bell()
         else:
-            self.success_text.set("soundpack failed to be converted")
+            self.success_text.set("Soundpack failed to be converted.")
             self.success_lbl.config(foreground='red')
             root.bell()
 
