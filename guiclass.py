@@ -46,7 +46,7 @@ class MisaGUI:
         self.new_lbl.grid(column=1, row=1, sticky=(N, W))
         self.new_btn.grid(column=2, row=1, sticky=(N, W))
         self.success_lbl.grid(column=1, row=3, sticky=S)
-        self.run_btn.grid(column=3, row=3, sticky=(E))
+        self.run_btn.grid(column=2, row=3, sticky=(E))
 
         for child in mainframe.winfo_children(): 
             child.grid_configure(padx=5, pady=5)
@@ -68,8 +68,8 @@ class MisaGUI:
             self.new_text.set(self.new_filepath)
 
     def main(self):
-        self.misa = MisaClass(bfr_folder=self.bfr_filepath, new_folder=self.new_filepath)
-        if self.misa.main():
+        misa = MisaClass(bfr_folder=self.bfr_filepath, new_folder=self.new_filepath)
+        if misa.main():
             self.success_text.set("Soundpack converted successfully!")
             self.success_lbl.config(foreground='green')
             root.bell()
@@ -77,8 +77,3 @@ class MisaGUI:
             self.success_text.set("Soundpack failed to be converted.")
             self.success_lbl.config(foreground='red')
             root.bell()
-
-
-root = Tk()
-MisaGUI(root)
-root.mainloop()

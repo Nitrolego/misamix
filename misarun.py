@@ -1,11 +1,6 @@
-from misaclass import MisaClass
-from guiclass import MisaGUI
-
-#imports for gui
+#imports
 from tkinter import *
-from tkinter import ttk
-
-misa = MisaClass()
+from guiclass import MisaGUI
 
 root = Tk()
 MisaGUI(root)
