@@ -17,25 +17,12 @@ class MisaGUI:
         # name of window
         root.title("MisaMix")
         # do not allow window resizing
-        #root.resizable(False, False)
-        # set window size
-        #root.geometry('300x150')
+        root.resizable(False, False)
 
         mainframe = ttk.Frame(root, padding="3 3 12 12")
         mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         root.columnconfigure(0, weight=1)
         root.rowconfigure(0, weight=1)
-
-        #root.minsize(500, 200)
-
-        #allows dynamic movement, for resizing.
-        mainframe.columnconfigure(0, weight=1)
-        mainframe.columnconfigure(1, weight=1)
-        mainframe.columnconfigure(2, weight=1)
-        mainframe.rowconfigure(0, weight=1)
-        mainframe.rowconfigure(1, weight=1)
-        mainframe.rowconfigure(2, weight=1)
-
 
         #before folder labels and button
         self.descbfr_lbl = ttk.Label(mainframe, text="Original:")
@@ -79,12 +66,20 @@ class MisaGUI:
             child.grid_configure(padx=5, pady=5)
     
     def openbfrdir(self):
-        self.bfr_filepath = fd.askdirectory(initialdir=self.absolute_path)
-        self.bfr_text.set(self.bfr_filepath)
+        bfr_filepath = fd.askdirectory(initialdir=self.absolute_path)
+        if bfr_filepath == "":
+            pass
+        else:
+            self.bfr_filepath = bfr_filepath
+            self.bfr_text.set(self.bfr_filepath)
 
     def opennewdir(self):
-        self.new_filepath = fd.askdirectory(initialdir=self.absolute_path)
-        self.new_text.set(self.new_filepath)
+        new_filepath = fd.askdirectory(initialdir=self.absolute_path)
+        if new_filepath == "":
+            pass
+        else:
+            self.new_filepath = new_filepath
+            self.new_text.set(self.new_filepath)
 
     def main(self):
         self.misa = MisaClass(bfr_folder=self.bfr_filepath, new_folder=self.new_filepath)
