@@ -16,9 +16,6 @@ class MisaGUI:
 
         #mainframe to prevent widget off colour
         mainframe = ttk.Frame(root, padding="3 3 12 12")
-        mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
-        root.columnconfigure(0, weight=1)
-        root.rowconfigure(0, weight=1)
 
         #variable declaration
         self.absolute_path = dirname(__file__)
@@ -44,6 +41,7 @@ class MisaGUI:
                                         command=self.main)
 
         #grid positioning of widgets
+        mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         self.descbfr_lbl.grid(column=0, row=0, sticky=(N, W))
         self.bfr_lbl.grid(column=1, row=0, sticky=(N, W))
         self.bfr_btn.grid(column=2, row=0, sticky=(N, W))        
