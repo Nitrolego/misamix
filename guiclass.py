@@ -18,19 +18,24 @@ class MisaGUI:
         root.title("MisaMix")
         # do not allow window resizing
         root.resizable(False, False)
+        #root.geometry("550x150")
+        
 
+        
+
+        #mainframe to prevent widget off colour
         mainframe = ttk.Frame(root, padding="3 3 12 12")
         mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         root.columnconfigure(0, weight=1)
         root.rowconfigure(0, weight=1)
 
         #before folder labels and button
-        self.descbfr_lbl = ttk.Label(mainframe, text="Original:")
+        self.descbfr_lbl = ttk.Label(mainframe, text="Input:")
         self.descbfr_lbl.grid(column=0, row=0, sticky=(N, W))
         
-        self.bfr_text = StringVar(value=join(self.absolute_path, "before"))
+        self.bfr_text = StringVar(value=self.bfr_filepath)
 
-        self.bfr_lbl = ttk.Label(mainframe, textvariable=self.bfr_text)
+        self.bfr_lbl = ttk.Label(mainframe, textvariable=self.bfr_text, width=60)
         self.bfr_lbl.grid(column=1, row=0, sticky=(N, W))
 
         self.bfr_button = ttk.Button(mainframe, text="Open",
@@ -39,13 +44,12 @@ class MisaGUI:
         
 
         #new folder labels and button
-        self.descnew_lbl = ttk.Label(mainframe, text="Processed:")
+        self.descnew_lbl = ttk.Label(mainframe, text="Output:")
         self.descnew_lbl.grid(column=0, row=1, sticky=(N, W))
 
-        self.new_text = StringVar(value=join(self.absolute_path,
-                                             "after\sfx\default"))
+        self.new_text = StringVar(value=self.new_filepath)
 
-        self.new_lbl = ttk.Label(mainframe, textvariable=self.new_text)
+        self.new_lbl = ttk.Label(mainframe, textvariable=self.new_text, width=60)
         self.new_lbl.grid(column=1, row=1, sticky=(N, W))
 
         self.new_button = ttk.Button(mainframe, text="Open",
@@ -55,7 +59,7 @@ class MisaGUI:
         #success label
         self.success_text = StringVar()
         self.success_lbl = ttk.Label(mainframe, textvariable=self.success_text)
-        self.success_lbl.grid(column=2, row=3, sticky=S)
+        self.success_lbl.grid(column=1, row=3, sticky=S)
         
 
         #run button
@@ -84,11 +88,13 @@ class MisaGUI:
     def main(self):
         self.misa = MisaClass(bfr_folder=self.bfr_filepath, new_folder=self.new_filepath)
         if self.misa.main():
-            self.success_text.set("sfx converted successfully")
+            self.success_text.set("soundpack converted successfully")
             self.success_lbl.config(foreground='green')
+            root.bell()
         else:
-            self.success_text.set("sfx failed to be converted")
+            self.success_text.set("soundpack failed to be converted")
             self.success_lbl.config(foreground='red')
+            root.bell()
 
 
 root = Tk()
