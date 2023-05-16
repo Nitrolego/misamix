@@ -30,8 +30,8 @@ class MisaGUI:
 
         #label declaration
         self.descbfr_lbl = ttk.Label(mainframe, text="Input:")
-        self.bfr_lbl = ttk.Label(mainframe, textvariable=self.bfr_text, width=60)
         self.descnew_lbl = ttk.Label(mainframe, text="Output:")
+        self.bfr_lbl = ttk.Label(mainframe, textvariable=self.bfr_text, width=60)
         self.new_lbl = ttk.Label(mainframe, textvariable=self.new_text, width=60)
         self.success_lbl = ttk.Label(mainframe, textvariable=self.success_text)
 
@@ -46,12 +46,12 @@ class MisaGUI:
         #grid positioning of widgets
         self.descbfr_lbl.grid(column=0, row=0, sticky=(N, W))
         self.bfr_lbl.grid(column=1, row=0, sticky=(N, W))
-        self.bfr_button.grid(column=2, row=0, sticky=(N, W))        
+        self.bfr_btn.grid(column=2, row=0, sticky=(N, W))        
         self.descnew_lbl.grid(column=0, row=1, sticky=(N, W))
         self.new_lbl.grid(column=1, row=1, sticky=(N, W))
-        self.new_button.grid(column=2, row=1, sticky=(N, W))
+        self.new_btn.grid(column=2, row=1, sticky=(N, W))
         self.success_lbl.grid(column=1, row=3, sticky=S)
-        self.run_button.grid(column=3, row=3, sticky=(E))
+        self.run_btn.grid(column=3, row=3, sticky=(E))
 
         for child in mainframe.winfo_children(): 
             child.grid_configure(padx=5, pady=5)
