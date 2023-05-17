@@ -25,7 +25,7 @@ class MisaGUI(Frame):
         self.new_filepath = join(self.absolute_path, "after/sfx/default")
         self.bfr_text = StringVar(value=self.bfr_filepath)
         self.new_text = StringVar(value=self.new_filepath)
-        self.success_text = StringVar()
+        self.success_text = StringVar(value="Select your input and output directories")
 
         #label declaration
         self.descbfr_lbl = ttk.Label(mainframe, text="Input:")
@@ -35,8 +35,8 @@ class MisaGUI(Frame):
         self.success_lbl = ttk.Label(mainframe, textvariable=self.success_text)
 
         #button declaration
-        self.bfr_btn = ttk.Button(mainframe, text="Open", command=self.openbfrdir)
-        self.new_btn = ttk.Button(mainframe, text="Open", command=self.opennewdir)
+        self.bfr_btn = ttk.Button(mainframe, text="Browse", command=self.openbfrdir)
+        self.new_btn = ttk.Button(mainframe, text="Browse", command=self.opennewdir)
         self.run_btn = ttk.Button(mainframe, text="Run", command=self.main)
 
         #grid positioning of widgets
