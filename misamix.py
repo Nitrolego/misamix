@@ -76,7 +76,7 @@ if zippaths and not preprocesspath:
 elif zippaths:
     print("preprocess directory already occupied, skipping unpack")
 
-#Looping through all ogg,mp3, and wav files in before folder
+#Looping through all ogg, mp3, and wav files in before folder
 oggpaths = [path for path in Path(bfr_folder).rglob("*.ogg")]
 mp3paths = [path for path in Path(bfr_folder).rglob("*.mp3")]
 wavpaths = [path for path in Path(bfr_folder).rglob("*.wav")]
