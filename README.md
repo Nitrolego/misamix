@@ -4,3 +4,4 @@ script that automates converting tetrio sfx soundpacks to misamino compatible fo
 ## dependencies
 pydub
 ffmpeg
+babel
