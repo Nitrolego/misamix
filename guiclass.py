@@ -27,6 +27,16 @@ class MisaGUI(Frame):
         #mainframe to prevent widgets being the wrong colour
         mainframe = ttk.Frame(self, padding="3 3 12 12")
 
+        #menubar settings
+        menubar = Menu(self)
+        filemenu = Menu(menubar, tearoff=0)
+        filemenu.add_command(label="简体中文 (Chinese Simplified)", command=self.changecn)
+        filemenu.add_command(label="English", command=self.changeeng)
+        filemenu.add_command(label="Polski (Polish)", command=self.changeeng)
+        menubar.add_cascade(label="Languages", menu=filemenu)
+
+        self.master.config(menu=menubar)
+
         #variable declaration
         self.absolute_path = dirname(__file__)
         self.bfr_filepath = join(self.absolute_path, "before")
@@ -43,8 +53,6 @@ class MisaGUI(Frame):
         self.bfr_lbl = ttk.Label(mainframe, textvariable=self.bfr_text, width=60)
         self.new_lbl = ttk.Label(mainframe, textvariable=self.new_text, width=60)
         self.success_lbl = ttk.Label(mainframe, textvariable=self.select_text)
-
-        ttk.Button(mainframe, text="ewe", command=self.eng)
 
         #button declaration
         self.bfr_btn = ttk.Button(mainframe, text=_("Browse"), command=self.openbfrdir)
@@ -66,9 +74,17 @@ class MisaGUI(Frame):
         for child in mainframe.winfo_children(): 
             child.grid_configure(padx=5, pady=5)
 
-    def eng(self):
+    def changecn(self):
         self.destroy()
         self.__init__("zh_Hans")
+
+    def changeeng(self):
+        self.destroy()
+        self.__init__("en_MY")
+
+    def changepl(self):
+        self.destroy()
+        self.__init__("pl_PL")
 
     def openbfrdir(self):
         bfr_filepath = fd.askdirectory(initialdir=self.absolute_path)
