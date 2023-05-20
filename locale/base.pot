@@ -1,0 +1,51 @@
+# Translations template for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-05-20 11:11+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: guiclass.py:36
+msgid "Languages"
+msgstr ""
+
+#: guiclass.py:46
+msgid "Select your input and output directories"
+msgstr ""
+
+#: guiclass.py:47
+msgid "Soundpack converted successfully!"
+msgstr ""
+
+#: guiclass.py:48
+msgid "Soundpack failed to be converted."
+msgstr ""
+
+#: guiclass.py:51
+msgid "Input:"
+msgstr ""
+
+#: guiclass.py:52
+msgid "Output:"
+msgstr ""
+
+#: guiclass.py:58 guiclass.py:59
+msgid "Browse"
+msgstr ""
+
+#: guiclass.py:60
+msgid "Run"
+msgstr ""
+
