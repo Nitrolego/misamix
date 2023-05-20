@@ -32,9 +32,8 @@ class MisaGUI(Frame):
         filemenu = Menu(menubar, tearoff=0)
         filemenu.add_command(label="简体中文 (Chinese Simplified)", command=self.changecn)
         filemenu.add_command(label="English", command=self.changeeng)
-        filemenu.add_command(label="Polski (Polish)", command=self.changeeng)
-        menubar.add_cascade(label="Languages", menu=filemenu)
-
+        filemenu.add_command(label="Polski (Polish)", command=self.changepl)
+        menubar.add_cascade(label=_("Languages"), menu=filemenu)
         self.master.config(menu=menubar)
 
         #variable declaration
@@ -105,10 +104,10 @@ class MisaGUI(Frame):
     def main(self):
         misa = MisaClass(bfr_folder=self.bfr_filepath, new_folder=self.new_filepath)
         if misa.main():
-            self.select_text = self.success_text
+            self.success_lbl.config(textvariable=self.success_text)
             self.success_lbl.config(foreground='green')
             self.master.bell()
         else:
-            self.select_text = self.fail_text
+            self.success_lbl.config(textvariable=self.fail_text)
             self.success_lbl.config(foreground='red')
             self.master.bell()
