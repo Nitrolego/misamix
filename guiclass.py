@@ -88,7 +88,7 @@ class MisaGUI(Frame):
 
     def changees(self):
         self.destroy()
-        self.__init__("es_419")
+        self.__init__("es_MX")
 
     def openbfrdir(self):
         bfr_filepath = fd.askdirectory(initialdir=self.absolute_path)
