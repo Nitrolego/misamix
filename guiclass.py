@@ -33,7 +33,7 @@ class MisaGUI(Frame):
         filemenu.add_command(label="English", command=self.changeeng)
         filemenu.add_command(label="简体中文 (Chinese Simplified)", command=self.changecn)
         filemenu.add_command(label="Polski (Polish)", command=self.changepl)
-        filemenu.add_command(label="Español (Spanish)", command=self.changepl)
+        #filemenu.add_command(label="Español (Spanish)", command=self.changees)
         menubar.add_cascade(label=_("Languages"), menu=filemenu)
         self.master.config(menu=menubar)
 
