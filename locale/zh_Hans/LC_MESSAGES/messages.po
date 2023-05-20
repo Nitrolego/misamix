@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-05-20 11:11+0800\n"
+"POT-Creation-Date: 2023-05-20 20:57+0800\n"
 "PO-Revision-Date: 2023-05-19 19:51+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hans\n"
@@ -18,35 +18,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: guiclass.py:36
-msgid "Languages"
-msgstr "语言"
-
-#: guiclass.py:46
+#: guiclass.py:35
 msgid "Select your input and output directories"
 msgstr "请选您的要处理的文件夹"
 
-#: guiclass.py:47
+#: guiclass.py:36
 msgid "Soundpack converted successfully!"
 msgstr "音效处理成功！"
 
-#: guiclass.py:48
+#: guiclass.py:37
 msgid "Soundpack failed to be converted."
 msgstr "音效处理失败"
 
-#: guiclass.py:51
+#: guiclass.py:63
+msgid "Languages"
+msgstr "语言"
+
+#: guiclass.py:68
+msgid "Debug mode"
+msgstr "调试模式"
+
+#: guiclass.py:72
+msgid "Help"
+msgstr "帮助"
+
+#: guiclass.py:76
 msgid "Input:"
 msgstr "被处理:"
 
-#: guiclass.py:52
+#: guiclass.py:77
 msgid "Output:"
 msgstr "已处理:"
 
-#: guiclass.py:58 guiclass.py:59
+#: guiclass.py:83 guiclass.py:84
 msgid "Browse"
 msgstr "浏览"
 
-#: guiclass.py:60
+#: guiclass.py:85
 msgid "Run"
 msgstr "执行"
 

@@ -32,9 +32,12 @@ class MisaGUI(Frame):
         self.new_filepath = join(self.absolute_path, "after/sfx/default")
         self.bfr_text = StringVar(value=self.bfr_filepath)
         self.new_text = StringVar(value=self.new_filepath)
-        self.select_text = StringVar(value=_("Select your input and output directories"))
-        self.success_text = StringVar(value=_("Soundpack converted successfully!"))
-        self.fail_text = StringVar(value=_("Soundpack failed to be converted."))
+        self.select_text = StringVar(
+            value=_("Select your input and output directories"))
+        self.success_text = StringVar(
+            value=_("Soundpack converted successfully!"))
+        self.fail_text = StringVar(
+            value=_("Soundpack failed to be converted."))
         self.en = BooleanVar(value=True)
         self.cn = BooleanVar()
         self.pl = BooleanVar()
@@ -43,25 +46,35 @@ class MisaGUI(Frame):
         #menubar settings
         menubar = Menu(self)
         filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_radiobutton(label="English", 
-                                 value=1,  
-                                 variable=self.en, 
-                                 command=self.changeeng)
-        filemenu.add_radiobutton(label="简体中文 (Chinese Simplified)", 
-                                 value=1,  
-                                 variable=self.cn, 
-                                 command=self.changecn)
-        filemenu.add_radiobutton(label="Polski (Polish)", 
-                                 value=1,  
-                                 variable=self.pl, 
-                                 command=self.changepl)
+        submenu = Menu(menubar, tearoff=0)
+        submenu.add_radiobutton(
+            label="English", 
+            value=1,  
+            variable=self.en, 
+            command=self.changeeng)
+        submenu.add_radiobutton(
+            label="简体中文 (Chinese Simplified)", 
+            value=1,  
+            variable=self.cn, 
+            command=self.changecn)
+        submenu.add_radiobutton(
+            label="Polski (Polish)", 
+            value=1,  
+            variable=self.pl, 
+            command=self.changepl)
+        filemenu.add_cascade(
+            label=_("Languages"),
+            menu=submenu)
         #filemenu.add_command(label="Español (Spanish)", command=self.changees)
         filemenu.add_separator()
-        filemenu.add_checkbutton(label="debug",
-                                 onvalue=1,
-                                 offvalue=0,
-                                 variable=self.debug)
-        menubar.add_cascade(label=_("Languages"), menu=filemenu)
+        filemenu.add_checkbutton(
+            label=_("Debug mode"),
+            onvalue=1,
+            offvalue=0,
+            variable=self.debug)
+        menubar.add_cascade(
+            label=_("Help"), 
+            menu=filemenu)
         self.master.config(menu=menubar)
 
         #label declaration
