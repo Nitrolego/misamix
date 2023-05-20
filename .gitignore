@@ -2,3 +2,5 @@ after/
 __pycache__/
 example*
 *venv
+build/
+dist/
