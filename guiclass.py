@@ -38,6 +38,7 @@ class MisaGUI(Frame):
         self.en = BooleanVar(value=True)
         self.cn = BooleanVar()
         self.pl = BooleanVar()
+        self.debug = BooleanVar()
 
         #menubar settings
         menubar = Menu(self)
@@ -56,6 +57,10 @@ class MisaGUI(Frame):
                                  command=self.changepl)
         #filemenu.add_command(label="Español (Spanish)", command=self.changees)
         filemenu.add_separator()
+        filemenu.add_checkbutton(label="debug",
+                                 onvalue=1,
+                                 offvalue=0,
+                                 variable=self.debug)
         menubar.add_cascade(label=_("Languages"), menu=filemenu)
         self.master.config(menu=menubar)
 
@@ -95,7 +100,6 @@ class MisaGUI(Frame):
     def changeeng(self):
         self.destroy()
         self.__init__("en_MY")
-        self.en.set(True)
 
     def changepl(self):
         self.destroy()
@@ -124,7 +128,9 @@ class MisaGUI(Frame):
             self.new_text.set(self.new_filepath)
 
     def main(self):
-        misa = MisaClass(bfr_folder=self.bfr_filepath, new_folder=self.new_filepath)
+        misa = MisaClass(bfr_folder=self.bfr_filepath, 
+                         new_folder=self.new_filepath,
+                         debug=self.debug)
         if misa.main():
             self.success_lbl.config(textvariable=self.success_text)
             self.success_lbl.config(foreground='green')
