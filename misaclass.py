@@ -4,8 +4,8 @@ from pydub import AudioSegment
 from pathlib import Path
 from shutil import copy, unpack_archive
 from os.path import exists, join, dirname
-import logging
 from datetime import datetime
+import logging
 
 class MisaClass:
     def __init__(self, bfr_folder, new_folder, debug) -> None:
