@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-05-19 19:51+0800\n"
+"POT-Creation-Date: 2023-05-20 10:09+0800\n"
 "PO-Revision-Date: 2023-05-19 19:51+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hans\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
-
-#: babel_playground.py:9
-msgid "hello world"
-msgstr ""
 
 #: guiclass.py:36
 msgid "Select your input and output directories"
@@ -42,11 +38,10 @@ msgstr "浏览"
 msgid "Run"
 msgstr "执行"
 
-#: guiclass.py:86
+#: guiclass.py:94
 msgid "Soundpack converted successfully!"
-msgstr "音效成功的被处理！"
+msgstr "音效处理成功！"
 
-#: guiclass.py:90
+#: guiclass.py:98
 msgid "Soundpack failed to be converted."
 msgstr "音效处理失败"
-
