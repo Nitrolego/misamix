@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-05-20 11:11+0800\n"
+"POT-Creation-Date: 2023-05-20 20:57+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,35 +17,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: guiclass.py:36
-msgid "Languages"
-msgstr ""
-
-#: guiclass.py:46
+#: guiclass.py:35
 msgid "Select your input and output directories"
 msgstr ""
 
-#: guiclass.py:47
+#: guiclass.py:36
 msgid "Soundpack converted successfully!"
 msgstr ""
 
-#: guiclass.py:48
+#: guiclass.py:37
 msgid "Soundpack failed to be converted."
 msgstr ""
 
-#: guiclass.py:51
+#: guiclass.py:63
+msgid "Languages"
+msgstr ""
+
+#: guiclass.py:68
+msgid "Debug mode"
+msgstr ""
+
+#: guiclass.py:72
+msgid "Help"
+msgstr ""
+
+#: guiclass.py:76
 msgid "Input:"
 msgstr ""
 
-#: guiclass.py:52
+#: guiclass.py:77
 msgid "Output:"
 msgstr ""
 
-#: guiclass.py:58 guiclass.py:59
+#: guiclass.py:83 guiclass.py:84
 msgid "Browse"
 msgstr ""
 
-#: guiclass.py:60
+#: guiclass.py:85
 msgid "Run"
 msgstr ""
 

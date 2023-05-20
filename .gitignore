@@ -5,3 +5,4 @@ example*
 build/
 dist/
 *.spec
+logs/
