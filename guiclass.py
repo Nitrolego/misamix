@@ -30,9 +30,10 @@ class MisaGUI(Frame):
         #menubar settings
         menubar = Menu(self)
         filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_command(label="简体中文 (Chinese Simplified)", command=self.changecn)
         filemenu.add_command(label="English", command=self.changeeng)
+        filemenu.add_command(label="简体中文 (Chinese Simplified)", command=self.changecn)
         filemenu.add_command(label="Polski (Polish)", command=self.changepl)
+        filemenu.add_command(label="Español (Spanish)", command=self.changepl)
         menubar.add_cascade(label=_("Languages"), menu=filemenu)
         self.master.config(menu=menubar)
 
@@ -84,6 +85,10 @@ class MisaGUI(Frame):
     def changepl(self):
         self.destroy()
         self.__init__("pl_PL")
+
+    def changees(self):
+        self.destroy()
+        self.__init__("es_419")
 
     def openbfrdir(self):
         bfr_filepath = fd.askdirectory(initialdir=self.absolute_path)
