@@ -4,3 +4,4 @@ example*
 *venv
 build/
 dist/
+*.spec

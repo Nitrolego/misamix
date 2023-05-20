@@ -14,7 +14,6 @@ class MisaGUI(Frame):
         Frame.__init__(self, master)
 
         LOCALE_PATH = "locale"
-        self.language = language
 
         translations = Translations.load(LOCALE_PATH, [language])
         _ = translations.gettext
@@ -27,16 +26,6 @@ class MisaGUI(Frame):
         #mainframe to prevent widgets being the wrong colour
         mainframe = ttk.Frame(self, padding="3 3 12 12")
 
-        #menubar settings
-        menubar = Menu(self)
-        filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_command(label="English", command=self.changeeng)
-        filemenu.add_command(label="简体中文 (Chinese Simplified)", command=self.changecn)
-        filemenu.add_command(label="Polski (Polish)", command=self.changepl)
-        #filemenu.add_command(label="Español (Spanish)", command=self.changees)
-        menubar.add_cascade(label=_("Languages"), menu=filemenu)
-        self.master.config(menu=menubar)
-
         #variable declaration
         self.absolute_path = dirname(__file__)
         self.bfr_filepath = join(self.absolute_path, "before")
@@ -46,6 +35,29 @@ class MisaGUI(Frame):
         self.select_text = StringVar(value=_("Select your input and output directories"))
         self.success_text = StringVar(value=_("Soundpack converted successfully!"))
         self.fail_text = StringVar(value=_("Soundpack failed to be converted."))
+        self.en = BooleanVar(value=True)
+        self.cn = BooleanVar()
+        self.pl = BooleanVar()
+
+        #menubar settings
+        menubar = Menu(self)
+        filemenu = Menu(menubar, tearoff=0)
+        filemenu.add_radiobutton(label="English", 
+                                 value=1,  
+                                 variable=self.en, 
+                                 command=self.changeeng)
+        filemenu.add_radiobutton(label="简体中文 (Chinese Simplified)", 
+                                 value=1,  
+                                 variable=self.cn, 
+                                 command=self.changecn)
+        filemenu.add_radiobutton(label="Polski (Polish)", 
+                                 value=1,  
+                                 variable=self.pl, 
+                                 command=self.changepl)
+        #filemenu.add_command(label="Español (Spanish)", command=self.changees)
+        filemenu.add_separator()
+        menubar.add_cascade(label=_("Languages"), menu=filemenu)
+        self.master.config(menu=menubar)
 
         #label declaration
         self.descbfr_lbl = ttk.Label(mainframe, text=_("Input:"))
@@ -77,14 +89,19 @@ class MisaGUI(Frame):
     def changecn(self):
         self.destroy()
         self.__init__("zh_Hans")
+        self.en.set(False)
+        self.cn.set(True)
 
     def changeeng(self):
         self.destroy()
         self.__init__("en_MY")
+        self.en.set(True)
 
     def changepl(self):
         self.destroy()
         self.__init__("pl_PL")
+        self.en.set(False)
+        self.pl.set(True)
 
     def changees(self):
         self.destroy()
