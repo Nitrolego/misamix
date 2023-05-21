@@ -22,6 +22,9 @@ class MisaGUI(Frame):
         self.master.title("MisaMix")
         # do not allow window resizing
         self.master.resizable(False, False)
+        # add icon photo
+        photo = PhotoImage(file = 'icon.png')
+        self.master.iconphoto(False, photo)
 
         #mainframe to prevent widgets being the wrong colour
         mainframe = ttk.Frame(self, padding="3 3 12 12")
