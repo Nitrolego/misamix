@@ -69,8 +69,6 @@ class MisaGUI(Frame):
         filemenu.add_separator()
         filemenu.add_checkbutton(
             label=_("Debug mode"),
-            onvalue=1,
-            offvalue=0,
             variable=self.debug)
         menubar.add_cascade(
             label=_("Help"), 
@@ -143,7 +141,7 @@ class MisaGUI(Frame):
     def main(self):
         misa = MisaClass(bfr_folder=self.bfr_filepath, 
                          new_folder=self.new_filepath,
-                         debug=self.debug)
+                         debug=self.debug.get())
         if misa.main():
             self.success_lbl.config(textvariable=self.success_text)
             self.success_lbl.config(foreground='green')

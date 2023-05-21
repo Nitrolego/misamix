@@ -20,7 +20,7 @@ class MisaClass:
         for folder in self.req_folder:
             if not exists(folder):
                 makedirs(folder)
-        if debug == True:
+        if debug == 1:
             if not exists(join(self.log_folder)):
                 makedirs(join(self.log_folder))
             now = datetime.utcnow().strftime("%Y-%m-%d-%H%M%S")
