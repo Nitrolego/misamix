@@ -41,7 +41,7 @@ class MisaGUI(Frame):
         self.en = BooleanVar(value=True)
         self.cn = BooleanVar()
         self.pl = BooleanVar()
-        self.debug = BooleanVar()
+        self.debug = BooleanVar(value=False)
 
         #menubar settings
         menubar = Menu(self)
