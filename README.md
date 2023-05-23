@@ -4,17 +4,15 @@ MisaMix allows users to create [MisaMino](https://harddrop.com/forums/index.php?
 
 ## Dependencies
 
-To use the console based script:
-pydub ffmpeg
+### Required:
+1. [ffmpeg](https://phoenixnap.com/kb/ffmpeg-windows)
 
-To use the GUI version:
-ffmpeg
-
-To develop the GUI version:
-pydub babel ffmpeg
+### Optional (for development):
+1. [pydub](https://github.com/jiaaro/pydub)
+2. [babel](https://babel.pocoo.org/en/latest/)
 
 ## Usage
-Visit the wiki [here](https://github.com/Nitrolego/misamix/wiki/User-Guide) for more details on how to use MisaMix
+Visit the wiki [here](https://github.com/Nitrolego/misamix/wiki) for more details on how to use MisaMix
 
 ## Contributing
 
