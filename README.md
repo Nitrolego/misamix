@@ -14,25 +14,7 @@ To develop the GUI version:
 pydub babel ffmpeg
 
 ## Usage
-Prerequisites:
-1. install dependencies as listed above.
-
-To use the script
-1. Load the zip folder of the TETR.IO compatible soundpack into ./before
-2. Run the script
-3. The converted audio files should be found in ./after/sfx/default
-
-To use the GUI
-1. Run the exe.
-2. Select the location of the zip folder of the TETR.IO compatible soundpack with the "Browse" button on the first row. (Default=./before)
-3. Select the output location of the audio files with the "Browse" button on the second row. (Default=./after/sfx/default)
-4. Click Run.
-5. The specified output folder should contain the converted audio files.
-
-After conversion
-1. copy the sfx folder into MisaMino's sound/sfx folder
-2. enjoy new sound effects!
-
+Visit the wiki [here](https://github.com/Nitrolego/misamix/wiki/User-Guide) for more details on how to use MisaMix
 
 ## Contributing
 
